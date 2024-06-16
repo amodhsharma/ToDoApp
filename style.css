@@ -1,0 +1,130 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", "sans-serif";
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    min-height: 100vh;  /*shorthand property is used in a flex container to allow a flex item to grow and take up available space*/
+    background:#1b1b29;
+    
+    padding: 10px;
+}
+
+.todoapp{
+    width: 100%;
+    max-width: 500px;   /*width of the container*/
+    background: #bb1d25;
+    margin: 100px auto 20px; /*for the entire container*/
+    padding: 10px 30px 70px;    /*for the elements in the container*/
+    border-radius: 10px; /*gives roundness to border edges*/
+}
+
+.todoapp h2{
+    color: #e0bfbf;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+.todoapp h2 img{
+    width: 30px;
+    margin-left: 10px;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #e0bfbf;
+    border-radius: 30px;
+    margin-bottom: 30px;
+    padding: 2px;   /*decides the gap between the button outline and the whole row */
+}
+
+input{
+    flex: 1;    /*shorthand property is used in a flex container to allow a flex item to grow and take up available space*/
+    border: none;
+    outline: none;
+    background: transparent;
+    padding-left: 20px; /*distance of the text box the left side of the box */
+    font-size: 16px;
+}
+
+::placeholder{  /* to edit text in the placeholder */
+}
+
+button{
+    border: none;   /*removes the silhouette from outside the button */
+    outline: none;
+    margin: 0px;
+    padding: 10px 50px;
+    background: #2b5822;
+    font-size: 16px;
+    cursor: pointer;    /*changes the curson to pointer when the cursor is hovered over it */
+    color: #fff;
+    border-radius: 40px;
+}
+
+ul li{  /*wont write list-container, will write ul li instead*/
+    list-style: none;
+    font-size: 16px;
+    padding: 12px 8px 12px 50px;  /*puts them all at a gap of - pixels wrt each other*/
+    /*top right bottom left*/
+    user-select: none;  /*used to prevent the text contained within an element from being selected or highlighted by the user*/
+    cursor: pointer;
+    position: relative; 
+    /* for referenct tot eht position: absolute of ::before 
+    it’s not strictly necessary to define another element with position: relative;,
+     but it is usually a good practice to do so. This is because an absolutely 
+     positioned element is positioned relative to its nearest positioned ancestor. 
+     */
+}
+
+ul li::before{
+    content: '';
+    position: absolute;
+    height: 25px;   /*the height and width property bounds the item togethet, imagine streathina a pizza base with desired dimensions*/
+    width: 25px;
+    border-radius: 50%;
+    /*commonly used to display profile pictures or circular icons.*/
+    /*not useful when the image is already in circular shape*/
+    background-image: url(todoimg/unchecked.png);
+    /*in css it is  important to usethe url tag*/
+    background-size: cover; /* covers entire element, is important tag*/
+    background-position: center;    /*positions the background image at the center of the element, not really important */
+    top: 10px;  /*shows the distance for the absolute top*/
+    left: 8px;  /*shows the distance from the absolute left*/
+}
+
+ul li.checked{  /* adds styling for the elements when they are clicked */
+    color: #555;
+    text-decoration: line-through;
+}
+
+ul li.checked::before{ /* adds styling for the button element when they are clicked */
+    background-image: url(todoimg/checked.png);
+}
+
+ul li span{
+    position: absolute;
+    right: 0;
+    top: 8px;
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    color: #fff;
+    line-height: 40px;  /*controls the amount of space between lines of text within an element */
+    text-align: center; /* dpesnt really do anything */
+    border-radius: 50%;
+}
+
+ui li span:hover{   /* applies to when a user hovers cursor over it*/
+    background: #fff;
+}
